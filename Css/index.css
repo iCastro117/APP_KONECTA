@@ -1,0 +1,378 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+    padding: 20px;
+}
+
+
+/* Contenedor del mockup */
+
+.mockup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Marco del teléfono */
+
+.phone-mockup {
+    position: relative;
+    width: 375px;
+    height: 750px;
+    background-color: #1a1a1a;
+    border-radius: 40px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25), inset 0 -3px 10px rgba(255, 255, 255, 0.1), inset 0 3px 10px rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    overflow: hidden;
+}
+
+
+/* Elementos del teléfono */
+
+.phone-speaker {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 6px;
+    background-color: #0a0a0a;
+    border-radius: 3px;
+    z-index: 20;
+}
+
+.phone-camera {
+    position: absolute;
+    top: 10px;
+    right: 110px;
+    width: 10px;
+    height: 10px;
+    background-color: #0a0a0a;
+    border-radius: 50%;
+    z-index: 20;
+}
+
+.phone-button {
+    position: absolute;
+    background-color: #0a0a0a;
+    z-index: 20;
+}
+
+.phone-button.left {
+    left: -2px;
+    top: 120px;
+    width: 4px;
+    height: 40px;
+    border-radius: 0 2px 2px 0;
+}
+
+.phone-button.right-top {
+    right: -2px;
+    top: 100px;
+    width: 4px;
+    height: 30px;
+    border-radius: 2px 0 0 2px;
+}
+
+.phone-button.right-bottom {
+    right: -2px;
+    top: 140px;
+    width: 4px;
+    height: 60px;
+    border-radius: 2px 0 0 2px;
+}
+
+
+/* Pantalla del teléfono */
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #EEBEFA 0%, #9D39B6 100%);
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* Barra de estado */
+
+.status-bar {
+    height: 44px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 100;
+    position: relative;
+}
+
+.status-bar-icons {
+    display: flex;
+    gap: 8px;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    position: relative;
+}
+
+.wifi::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+}
+
+.signal::before {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 6px;
+    background: white;
+    bottom: 0;
+    left: 0;
+}
+
+.signal::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 10px;
+    background: white;
+    bottom: 0;
+    left: 5px;
+}
+
+.battery {
+    width: 20px;
+    height: 10px;
+    border: 1px solid white;
+    border-radius: 2px;
+    position: relative;
+}
+
+.battery::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 6px;
+    background: white;
+    top: 1px;
+    left: 1px;
+}
+
+.battery::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 4px;
+    background: white;
+    top: 3px;
+    right: -3px;
+    border-radius: 0 2px 2px 0;
+}
+
+
+/* Contenedor principal */
+
+.app-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+    height: calc(100% - 44px);
+}
+
+.app-content {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-container {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.app-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+
+/* Modificación para mover los botones más abajo */
+
+p {
+    font-size: 14px;
+    margin-bottom: 100px;
+    /* Aumentado de 40px a 100px para bajar los botones */
+    opacity: 0.9;
+    line-height: 1.5;
+    padding: 0 10px;
+}
+
+
+/* También podemos añadir margen adicional al contenedor de botones */
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
+    /* Margen adicional en la parte superior */
+}
+
+.btn {
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #9D39B6;
+    color: white;
+    border: none;
+}
+
+.btn-secondary {
+    background-color: white;
+    color: #9D39B6;
+    border: none;
+}
+
+.btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Animación de círculos */
+
+.connections {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    animation: float 15s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(30px, 30px) scale(1.1);
+    }
+    50% {
+        transform: translate(60px, 0) scale(1);
+    }
+    75% {
+        transform: translate(30px, -30px) scale(0.9);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+
+/* Ajuste para pantallas más pequeñas */
+
+@media (max-width: 400px) {
+    .phone-mockup {
+        width: 320px;
+        height: 650px;
+    }
+    .app-content {
+        max-width: 240px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    p {
+        font-size: 13px;
+        margin-bottom: 70px;
+        /* Ajustado para pantallas más pequeñas */
+    }
+    .btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 768px) {
+    .phone-mockup {
+        width: 375px;
+        height: 750px;
+    }
+    .app-content {
+        max-width: 280px;
+    }
+    .buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+    .btn {
+        width: auto;
+        padding: 14px 24px;
+    }
+}
