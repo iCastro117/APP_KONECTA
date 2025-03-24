@@ -1,11 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Konecta - Login</title>
+    <link rel="stylesheet" href="../Css/index.css">
+
 </head>
+
 <body>
-    
+    <div class="mockup-container">
+        <!-- Marco del teléfono -->
+        <div class="phone-mockup">
+            <!-- Elementos del teléfono -->
+            <div class="phone-speaker"></div>
+            <div class="phone-camera"></div>
+            <div class="phone-button left"></div>
+            <div class="phone-button right-top"></div>
+            <div class="phone-button right-bottom"></div>
+
+            <!-- Pantalla del teléfono -->
+            <div class="phone-screen">
+                <!-- Barra de estado -->
+                <div class="status-bar">
+                    <div class="status-bar-time">12:30</div>
+                    <div class="status-bar-icons">
+                        <span class="icon wifi"></span>
+                        <span class="icon signal"></span>
+                        <span class="icon battery"></span>
+                    </div>
+                </div>
+
+                <!-- Fondo animado -->
+                <div class="connections" id="connections"></div>
+
+                <!-- Contenido principal -->
+                <div class="app-container">
+                    <div class="app-content">
+                        <div class="logo-container">
+                            <img src="../Assets/logo.png" alt="Logo" class="app-logo">
+
+                        </div>
+
+                        <h1>SIGN IN</h1>
+                        <p>Ingresa tus credenciales para acceder</p>
+
+                        <div class="login-form">
+                            <form id="loginForm">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" name="password" required>
+                                    <div class="forgot-password">
+                                        <a href="#">¿Olvidaste tu contraseña?</a>
+                                    </div>
+                                </div>
+                                <div class="login-buttons">
+                                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                                </div>
+                            </form>
+                            <a href="../index.html" class="back-link">← Volver al inicio</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Js/index.js"></script>
 </body>
+
 </html>

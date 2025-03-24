@@ -207,3 +207,44 @@ buttons.forEach(button => {
         this.style.transform = 'scale(1)';
     });
 });
+
+ // Script específico para la página de login
+ document.addEventListener('DOMContentLoaded', function() {
+    // Manejar el envío del formulario
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        
+        // Aquí puedes agregar la lógica de autenticación
+        console.log('Intento de inicio de sesión:', { email, password });
+        
+        // Simulación de inicio de sesión exitoso
+        // En una aplicación real, aquí verificarías las credenciales
+        alert('Inicio de sesión exitoso');
+        // Redirigir a una página de dashboard (que deberías crear)
+        // window.location.href = 'dashboard.html';
+    });
+
+    // Agregar efectos táctiles para los botones del formulario
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+        button.addEventListener('mousedown', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+
+        button.addEventListener('mouseup', function() {
+            this.style.transform = 'scale(1)';
+        });
+
+        button.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+
+        button.addEventListener('touchend', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+});

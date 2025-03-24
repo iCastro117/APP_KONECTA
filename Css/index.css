@@ -376,3 +376,196 @@ p {
         padding: 14px 24px;
     }
 }
+
+.login-form {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    color: white;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #9D39B6;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.forgot-password a {
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.forgot-password a:hover {
+    opacity: 1;
+}
+
+.login-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.back-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.back-link:hover {
+    opacity: 1;
+}
+/* Estilos para la página de registro */
+.register-form {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    color: white;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #9D39B6;
+}
+
+.terms-checkbox {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.terms-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 3px;
+    width: 16px;
+    height: 16px;
+    accent-color: #9D39B6;
+}
+
+.terms-checkbox label {
+    color: white;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.terms-checkbox a {
+    color: white;
+    text-decoration: underline;
+}
+
+.register-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.login-link {
+    margin-top: 20px;
+    color: white;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: white;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.back-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.back-link:hover {
+    opacity: 1;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 400px) {
+    .form-group {
+        margin-bottom: 12px;
+    }
+    
+    .form-group label {
+        font-size: 13px;
+    }
+    
+    .form-group input {
+        padding: 12px;
+        font-size: 13px;
+    }
+    
+    .terms-checkbox label {
+        font-size: 12px;
+    }
+    
+    .login-link {
+        font-size: 13px;
+    }
+    
+    .back-link {
+        font-size: 13px;
+    }
+}
+
+/* Ajuste para la altura del contenido en el registro */
+.app-content p {
+    margin-bottom: 30px; /* Reducido para la página de registro */
+}
