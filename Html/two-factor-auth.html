@@ -50,7 +50,7 @@
                             <button class="key">9</button>
                             <button class="key">Del</button>
                             <button class="key">0</button>
-                            <button class="key accept">Ingresar</button>
+                            <button class="key accept" id="btn-ingresar">Ingresar</button>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,11 @@
         </div>
     </div>
 
-    <script src="../Js/index.js"></script>
+    <script>
+        document.getElementById("btn-ingresar").addEventListener("click", function() {
+            window.location.href = "chat-search.html";
+        });
+    </script>
 </body>
 
 </html>
