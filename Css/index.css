@@ -405,7 +405,7 @@ p {
     color: #333;
 }
 
-/* Switch visual sin funcionalidad */
+/* Switch silenciar */
 .switch {
     position: relative;
     display: inline-block;
@@ -475,4 +475,57 @@ input:checked + .slider:before {
 .logout-btn {
     background-color: #9e9e9e;
     color: white;
+}
+
+/* Estilos two-factor-auth */
+.ingresar-codigo {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.ingresar-codigo input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 18px;
+    border-radius: 12px;
+    border: none;
+    background-color: #ffffffcc; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    margin-bottom: 20px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.key {
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.key:hover {
+    background-color: #d5d5d5;
+}
+
+.accept {
+    grid-column: span 3;
+    background-color: #4caf50;
+    color: white;
+}
+
+.accept:hover {
+    background-color: #45a049;
 }
