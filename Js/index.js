@@ -208,19 +208,19 @@ buttons.forEach(button => {
     });
 });
 
- // Script específico para la página de login
- document.addEventListener('DOMContentLoaded', function() {
+// Script específico para la página de login
+document.addEventListener('DOMContentLoaded', function() {
     // Manejar el envío del formulario
     const loginForm = document.getElementById('loginForm');
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-        
+
         // Aquí puedes agregar la lógica de autenticación
         console.log('Intento de inicio de sesión:', { email, password });
-        
+
         // Simulación de inicio de sesión exitoso
         // En una aplicación real, aquí verificarías las credenciales
         alert('Inicio de sesión exitoso');
@@ -247,4 +247,13 @@ buttons.forEach(button => {
             this.style.transform = 'scale(1)';
         });
     });
+
+    // Evento para redirigir a chart.html al presionar el botón "Ingresar"
+    const ingresarBtn = document.querySelector(".key.accept");
+
+    if (ingresarBtn) {
+        ingresarBtn.addEventListener("click", function () {
+            window.location.href = "chart.html"; // Redirige a chart.html
+        });
+    }
 });
