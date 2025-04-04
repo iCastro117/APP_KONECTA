@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konecta - Dashboard</title>
+    <link rel="stylesheet" href="../Css/index.css">
+</head>
+
+<body>
+    <div class="mockup-container">
+        <div class="phone-mockup">
+            <div class="phone-speaker"></div>
+            <div class="phone-camera"></div>
+            <div class="phone-button left"></div>
+            <div class="phone-button right-top"></div>
+            <div class="phone-button right-bottom"></div>
+            <div class="phone-screen">
+                <div class="status-bar">
+                    <div class="status-bar-time">12:30</div>
+                    <div class="status-bar-icons">
+                        <span class="icon wifi"></span>
+                        <span class="icon signal"></span>
+                        <span class="icon battery"></span>
+                    </div>
+                </div>
+                <div class="connections" id="connections"></div>
+                <div class="app-container">
+                    <div class="app-content">
+                        <div class="dashboard-header">
+                            <div class="logo-container small">
+                                <img src="../Assets/logo.png" alt="Logo" class="app-logo small">
+                            </div>
+                            <div class="user-info">
+                                <h2 id="userName">Bienvenido</h2>
+                                <p id="userEmail"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-content">
+                            <h1>Dashboard</h1>
+                            <p>Has iniciado sesión correctamente</p>
+                            
+                            <div class="user-details">
+                                <h3>Información del usuario</h3>
+                                <div class="detail-item">
+                                    <span class="label">Nombre:</span>
+                                    <span id="profileName" class="value"></span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Email:</span>
+                                    <span id="profileEmail" class="value"></span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Código:</span>
+                                    <span id="profileCodigo" class="value"></span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Programa:</span>
+                                    <span id="profilePrograma" class="value"></span>
+                                </div>
+                            </div>
+                            
+                            <button id="logoutBtn" class="btn btn-danger">Cerrar sesión</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../Js/index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar si el usuario está logueado
+            const user = JSON.parse(localStorage.getItem('user'));
+            
+            if (!user) {
+                // Redireccionar al login si no hay usuario
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Mostrar información del usuario
+            document.getElementById('userName').textContent = `Bienvenido, ${user.NOMBRE}`;
+            document.getElementById('userEmail').textContent = user.EMAIL;
+            document.getElementById('profileName').textContent = user.NOMBRE;
+            document.getElementById('profileEmail').textContent = user.EMAIL;
+            document.getElementById('profileCodigo').textContent = user.CODIGO_ESTUDIANTIL;
+            document.getElementById('profilePrograma').textContent = user.PROGRAMA;
+            
+            // Manejar el cierre de sesión
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                localStorage.removeItem('user');
+                window.location.href = 'login.html';
+            });
+        });
+    </script>
+</body>
+
+</html>
+

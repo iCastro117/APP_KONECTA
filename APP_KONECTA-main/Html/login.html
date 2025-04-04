@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konecta - Login</title>
+    <link rel="stylesheet" href="../Css/index.css">
+</head>
+
+<body>
+    <div class="mockup-container">
+        <div class="phone-mockup">
+            <div class="phone-speaker"></div>
+            <div class="phone-camera"></div>
+            <div class="phone-button left"></div>
+            <div class="phone-button right-top"></div>
+            <div class="phone-button right-bottom"></div>
+            <div class="phone-screen">
+                <div class="status-bar">
+                    <div class="status-bar-time">12:30</div>
+                    <div class="status-bar-icons">
+                        <span class="icon wifi"></span>
+                        <span class="icon signal"></span>
+                        <span class="icon battery"></span>
+                    </div>
+                </div>
+                <div class="connections" id="connections"></div>
+                <div class="app-container">
+                    <div class="app-content">
+                        <div class="logo-container">
+                            <img src="../Assets/logo.png" alt="Logo" class="app-logo">
+                        </div>
+                        <h1>SIGN IN</h1>
+                        <p>Ingresa tus credenciales para acceder</p>
+                        <div class="login-form">
+                            <form id="loginForm">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" name="password">
+                                    <div class="forgot-password">
+                                        <a href="#">¿Olvidaste tu contraseña?</a>
+                                    </div>
+                                </div>
+                                <div class="login-buttons">
+                                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                                    <a href="qr-login.html" class="btn btn-secondary">Iniciar con QR</a>
+                                </div>
+                            </form>
+                            <div class="register-link">
+                                ¿No tienes una cuenta? <a href="register.html">Regístrate</a>
+                            </div>
+                            <a href="../index.html" class="back-link">← Volver al inicio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../Js/index.js"></script>
+    <script src="../Js/login.js"></script>
+</body>
+
+</html>
+
