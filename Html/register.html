@@ -3,9 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konecta - Registro</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="../Css/index.css">
+
+
+    <!-- ✅ Solo esta línea para importar tu JS como módulo -->
+    <script type="module" src="../Js/register.js"></script>
 </head>
 
 <body>
@@ -45,7 +48,7 @@
                         <p>Crea tu cuenta para unirte a la comunidad</p>
 
                         <div class="register-form">
-                            <form id="registerForm">
+                            <form id="registerForm" method="post">
                                 <div class="form-group">
                                     <label for="name">Nombre completo</label>
                                     <input type="text" id="name" name="name" required>
@@ -73,16 +76,13 @@
                             <div class="login-link">
                                 ¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a>
                             </div>
-                            <a href="index.html" class="back-link">← Volver al inicio</a>
+                            <a href="../index.html" class="back-link">← Volver al inicio</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script src="Js/index.js"></script>
-    <script src="Js/register.js"></script>
 </body>
 
 </html>

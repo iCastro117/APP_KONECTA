@@ -208,19 +208,19 @@ buttons.forEach(button => {
     });
 });
 
- // Script específico para la página de login
- document.addEventListener('DOMContentLoaded', function() {
+// Script específico para la página de login
+document.addEventListener('DOMContentLoaded', function() {
     // Manejar el envío del formulario
     const loginForm = document.getElementById('loginForm');
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-        
+
         // Aquí puedes agregar la lógica de autenticación
         console.log('Intento de inicio de sesión:', { email, password });
-        
+
         // Simulación de inicio de sesión exitoso
         // En una aplicación real, aquí verificarías las credenciales
         alert('Inicio de sesión exitoso');
@@ -247,4 +247,41 @@ buttons.forEach(button => {
             this.style.transform = 'scale(1)';
         });
     });
+});
+
+
+
+// Js/index.js
+import { db } from './firebase.js';
+import {
+    doc,
+    setDoc,
+    addDoc,
+    collection,
+    serverTimestamp
+} from "firebase/firestore";
+
+// Crear usuario
+await setDoc(doc(db, "users", "uid_isa"), {
+    name: "Isabela Torres",
+    email: "isa@example.com",
+    createdAt: serverTimestamp(),
+    profileImage: "https://ejemplo.com/isa.jpg"
+});
+
+// Crear chat
+const chatRef = doc(db, "chats", "chat_abc123");
+
+await setDoc(chatRef, {
+    participants: ["uid_isa", "uid_juanito"],
+    lastMessage: "Hola Isa!",
+    lastMessageTime: serverTimestamp()
+});
+
+// Agregar mensaje al chat
+await addDoc(collection(chatRef, "messages"), {
+    text: "Hola Isa, ¿cómo estás?",
+    sender: "uid_juanito",
+    timestamp: serverTimestamp(),
+    read: false
 });

@@ -1,108 +1,119 @@
-// Script para la página de registro
-document.addEventListener('DOMContentLoaded', function() {
-    // Actualizar la hora en tiempo real (complementa al script principal)
+import { auth, db } from "./firebaseConfig.js";
+import {
+    createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import {
+    collection,
+    doc,
+    setDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+document.addEventListener("DOMContentLoaded", () => {
     updateStatusBarTime();
-    
-    // Manejar el envío del formulario de registro
-    const registerForm = document.getElementById('registerForm');
-    registerForm.addEventListener('submit', function(e) {
+
+    const registerForm = document.getElementById("registerForm");
+
+    registerForm.addEventListener("submit", async(e) => {
         e.preventDefault();
-        
-        // Obtener los valores del formulario
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirmPassword').value;
-        const termsAccepted = document.getElementById('terms').checked;
-        
-        // Validar que las contraseñas coincidan
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+        const termsAccepted = document.getElementById("terms").checked;
+        const submitButton = registerForm.querySelector('button[type="submit"]');
+
         if (password !== confirmPassword) {
-            alert('Las contraseñas no coinciden');
+            alert("Las contraseñas no coinciden");
             return;
         }
-        
-        // Validar que se aceptaron los términos
+
         if (!termsAccepted) {
-            alert('Debes aceptar los términos y condiciones');
+            alert("Debes aceptar los términos y condiciones");
             return;
         }
-        
-        // Aquí puedes agregar la lógica de registro
-        console.log('Datos de registro:', { name, email, password, termsAccepted });
-        
-        // Simulación de registro exitoso
-        // En una aplicación real, aquí enviarías los datos al servidor
-        alert('¡Registro exitoso!');
-        // Redirigir a una página de confirmación o login
-        // window.location.href = 'login.html';
+
+        if (!isValidEmail(email)) {
+            alert("El correo no tiene un formato válido");
+            return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Creando cuenta...";
+
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            await setDoc(doc(collection(db, "users"), user.uid), {
+                name: name,
+                email: email,
+                createdAt: serverTimestamp(),
+            });
+
+            alert("¡Registro exitoso!");
+            window.location.href = "dashboard.html";
+        } catch (error) {
+            console.error("Error en el registro:", error);
+            let errorMessage = "Error en el registro: " + error.message;
+
+            if (error.code === "auth/email-already-in-use") {
+                errorMessage = "Este correo electrónico ya está registrado. Por favor, usa otro o inicia sesión.";
+            } else if (error.code === "auth/weak-password") {
+                errorMessage = "La contraseña es demasiado débil. Usa al menos 6 caracteres.";
+            }
+
+            alert(errorMessage);
+        } finally {
+            submitButton.textContent = "Crear cuenta";
+            submitButton.disabled = false;
+        }
     });
 
-    // Agregar efectos táctiles para los botones del formulario
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(button => {
-        button.addEventListener('mousedown', function() {
-            this.style.transform = 'scale(0.98)';
-        });
-
-        button.addEventListener('mouseup', function() {
-            this.style.transform = 'scale(1)';
-        });
-
-        button.addEventListener('touchstart', function() {
-            this.style.transform = 'scale(0.98)';
-        });
-
-        button.addEventListener('touchend', function() {
-            this.style.transform = 'scale(1)';
-        });
+    const buttons = document.querySelectorAll(".btn");
+    buttons.forEach((button) => {
+        button.addEventListener("mousedown", () => (button.style.transform = "scale(0.98)"));
+        button.addEventListener("mouseup", () => (button.style.transform = "scale(1)"));
+        button.addEventListener("touchstart", () => (button.style.transform = "scale(0.98)"));
+        button.addEventListener("touchend", () => (button.style.transform = "scale(1)"));
     });
-    
-    // Función para validar el formato de email
+
+    const emailInput = document.getElementById("email");
+    emailInput.addEventListener("blur", function() {
+        if (this.value && !isValidEmail(this.value)) {
+            this.style.boxShadow = "0 0 0 2px red";
+        } else {
+            this.style.boxShadow = "";
+        }
+    });
+
+    const passwordInput = document.getElementById("password");
+    const confirmInput = document.getElementById("confirmPassword");
+    confirmInput.addEventListener("input", function() {
+        if (this.value && this.value !== passwordInput.value) {
+            this.style.boxShadow = "0 0 0 2px red";
+        } else {
+            this.style.boxShadow = "";
+        }
+    });
+
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
-    
-    // Validación en tiempo real para el email
-    const emailInput = document.getElementById('email');
-    emailInput.addEventListener('blur', function() {
-        if (this.value && !isValidEmail(this.value)) {
-            this.style.boxShadow = '0 0 0 2px red';
-            // Opcional: mostrar un mensaje de error
-        } else {
-            this.style.boxShadow = '';
-        }
-    });
-    
-    // Validación en tiempo real para confirmar contraseña
-    const passwordInput = document.getElementById('password');
-    const confirmInput = document.getElementById('confirmPassword');
-    
-    confirmInput.addEventListener('input', function() {
-        if (this.value && this.value !== passwordInput.value) {
-            this.style.boxShadow = '0 0 0 2px red';
-        } else {
-            this.style.boxShadow = '';
-        }
-    });
 });
 
-// Función para actualizar la hora (en caso de que no esté disponible desde index.js)
 function updateStatusBarTime() {
-    if (typeof window.updateStatusBarTime === 'function') {
-        return; // Ya está definida en index.js
-    }
-    
     const now = new Date();
     let hours = now.getHours();
     let minutes = now.getMinutes();
+    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
 
-    // Formato de 12 horas
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12; // La hora '0' debe ser '12'
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-
-    const timeString = `${hours}:${minutes} ${ampm}`;
-    document.querySelector('.status-bar-time').textContent = timeString;
+    const timeElement = document.querySelector(".status-bar-time");
+    if (timeElement) {
+        timeElement.textContent = `${hours}:${minutes} ${ampm}`;
+    }
 }

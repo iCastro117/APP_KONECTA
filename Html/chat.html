@@ -6,7 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konecta - Chat</title>
     <link rel="stylesheet" href="../Css/index.css">
-    <link rel="stylesheet" href="../Css/chat.css">
+    <link rel="stylesheet" href="Css/chat.css">
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+
+    <!-- Configuración -->
+    <script src="../Js/firebaseConfig.js"></script>
+
+    <!-- Tus scripts -->
+    <script src="Js/login.js"></script>
+    <script src="Js/register.js"></script>
+
 </head>
 
 <body>
@@ -175,57 +188,9 @@
                         </div>
 
                         <div class="messages-container" id="messagesContainer">
-                            <!-- Fecha -->
+                            <!-- Los mensajes se cargarán dinámicamente desde Firebase -->
                             <div class="message-date">
                                 <span>Hoy</span>
-                            </div>
-
-                            <!-- Mensaje recibido -->
-                            <div class="message received">
-                                <div class="message-content">
-                                    <p>¡Hola! ¿Cómo va todo con el proyecto?</p>
-                                    <span class="message-time">10:30 AM</span>
-                                </div>
-                            </div>
-
-                            <!-- Mensaje enviado -->
-                            <div class="message sent">
-                                <div class="message-content">
-                                    <p>¡Hola María! Todo va bien, estamos avanzando según lo planeado. Ya terminamos la primera fase.</p>
-                                    <span class="message-time">10:32 AM</span>
-                                    <span class="message-status">✓✓</span>
-                                </div>
-                            </div>
-
-                            <!-- Mensaje recibido -->
-                            <div class="message received">
-                                <div class="message-content">
-                                    <p>¡Excelente! ¿Podríamos tener una reunión para revisar los avances?</p>
-                                    <span class="message-time">10:35 AM</span>
-                                </div>
-                            </div>
-
-                            <!-- Mensaje recibido con imagen -->
-                            <div class="message received">
-                                <div class="message-content">
-                                    <div class="message-image">
-                                        <div class="image-placeholder">
-                                            <div class="image-icon"></div>
-                                            <span>Imagen</span>
-                                        </div>
-                                    </div>
-                                    <p>Aquí está el diagrama que mencioné.</p>
-                                    <span class="message-time">10:40 AM</span>
-                                </div>
-                            </div>
-
-                            <!-- Mensaje enviado -->
-                            <div class="message sent">
-                                <div class="message-content">
-                                    <p>Gracias por compartirlo. ¿Te parece bien reunirnos mañana a las 10 AM?</p>
-                                    <span class="message-time">10:45 AM</span>
-                                    <span class="message-status">✓</span>
-                                </div>
                             </div>
                         </div>
 
@@ -246,8 +211,36 @@
         </div>
     </div>
 
-    <script src="Js/index.js"></script>
-    <script src="Js/chat.js"></script>
+    <!-- Firebase Config -->
+    <script src="../Js/firebaseConfig.js"></script>
+    <script src="../Js/index.js"></script>
+    <script src="../Js/chat.js"></script>
+
+
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+
+    <script>
+        // 🔄 REEMPLAZA con tu configuración real desde Firebase Console
+        const firebaseConfig = {
+            apiKey: "AIzaSyBTbsFSstA_4mYG4E6FnB5o4Z2Nu_AqmHw",
+            authDomain: "isabella-castro.firebaseapp.com",
+            projectId: "isabella-castro",
+            storageBucket: "isabella-castro.firebasestorage.app",
+            messagingSenderId: "244493221667",
+            appId: "1:244493221667:web:4d7707abb3f4a97cce9696",
+            measurementId: "G-0TT9E180Y4"
+        };
+
+        // Inicializar Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+
 </body>
 
 </html>
