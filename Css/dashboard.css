@@ -1,0 +1,650 @@
+/* Estilos para el Dashboard */
+
+
+/* Ajustes generales para el contenedor del dashboard */
+
+.dashboard-container {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+/* Reducir la opacidad del fondo animado para mejorar la legibilidad */
+
+.dashboard-connections .circle {
+    opacity: 0.5;
+}
+
+
+/* Barra superior del dashboard */
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    position: relative;
+    z-index: 100;
+}
+
+.dashboard-title {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+    flex: 1;
+}
+
+
+/* Botón de perfil y menú desplegable */
+
+.profile-menu-container {
+    position: relative;
+}
+
+.profile-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.profile-button:active {
+    transform: scale(0.95);
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.profile-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(156, 39, 176, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 250px;
+    background-color: rgba(30, 30, 30, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    overflow: hidden;
+    display: none;
+    transform-origin: top left;
+    animation: dropdown-appear 0.2s ease forwards;
+}
+
+@keyframes dropdown-appear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.dropdown-header {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(156, 39, 176, 0.7);
+    margin-right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.dropdown-user-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.dropdown-user-info h3 {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-user-info p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-menu {
+    padding: 8px 0;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-item.danger {
+    color: #ff5252;
+}
+
+.dropdown-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    position: relative;
+}
+
+
+/* Iconos para el menú desplegable */
+
+.profile-icon::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    top: 2px;
+    left: 4px;
+}
+
+.profile-icon::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 8px;
+    border: 2px solid currentColor;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    bottom: 1px;
+    left: 1px;
+}
+
+.settings-icon::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+}
+
+.settings-icon::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 4px;
+    background-color: currentColor;
+    top: 0;
+    left: 9px;
+    box-shadow: 0 16px 0 currentColor, 4px 4px 0 currentColor, -4px 4px 0 currentColor, 4px 12px 0 currentColor, -4px 12px 0 currentColor;
+}
+
+.password-icon::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 8px;
+    border: 2px solid currentColor;
+    border-radius: 2px;
+    bottom: 2px;
+    left: 4px;
+}
+
+.password-icon::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    top: 2px;
+    left: 7px;
+}
+
+.delete-icon::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background-color: currentColor;
+    top: 9px;
+    left: 3px;
+    transform: rotate(45deg);
+}
+
+.delete-icon::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background-color: currentColor;
+    top: 9px;
+    left: 3px;
+    transform: rotate(-45deg);
+}
+
+.logout-icon::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 2px solid currentColor;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+    top: 4px;
+    left: 2px;
+}
+
+.logout-icon::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(45deg);
+    top: 6px;
+    right: 2px;
+}
+
+
+/* Botón de notificaciones */
+
+.notifications-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.notifications-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+.notifications-icon::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid white;
+    border-radius: 50%;
+    top: 0;
+    left: 2px;
+}
+
+.notifications-icon::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    top: 6px;
+    left: 7px;
+}
+
+.notifications-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 18px;
+    height: 18px;
+    background-color: #ff5252;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Contenido del dashboard */
+
+.dashboard-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/* Tarjetas de estadísticas */
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.stat-card {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(156, 39, 176, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.messages-stat-icon::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid white;
+    border-radius: 4px;
+    top: 10px;
+    left: 10px;
+}
+
+.messages-stat-icon::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: white;
+    top: 17px;
+    left: 13px;
+}
+
+.contacts-stat-icon::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
+    top: 10px;
+    left: 13px;
+}
+
+.contacts-stat-icon::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 7px;
+    border: 2px solid white;
+    border-top: none;
+    border-radius: 0 0 7px 7px;
+    bottom: 10px;
+    left: 11px;
+}
+
+.groups-stat-icon::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
+    top: 8px;
+    left: 10px;
+}
+
+.groups-stat-icon::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
+    top: 14px;
+    left: 16px;
+    box-shadow: -6px 6px 0 -1px rgba(156, 39, 176, 0.3), -6px 6px 0 1px white;
+}
+
+.stat-info h3 {
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0 0 4px 0;
+}
+
+.stat-info p {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+
+/* Secciones */
+
+.section-container {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 10px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.section-header h2 {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.view-all {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.view-all:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+
+/* Lista de actividad */
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+}
+
+.activity-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(156, 39, 176, 0.3);
+    margin-right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.activity-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.activity-info p {
+    color: white;
+    font-size: 14px;
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+}
+
+.activity-time {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+}
+
+
+/* Chats recientes */
+
+.recent-chats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.recent-chat-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.recent-chat-item:hover,
+.recent-chat-item:active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.chat-preview {
+    flex: 1;
+    min-width: 0;
+}
+
+.chat-preview h3 {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-preview p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Icono de dashboard para la navegación inferior */
+
+.dashboard-icon::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-radius: 2px;
+    top: 4px;
+    left: 4px;
+}
+
+.dashboard-icon::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: currentColor;
+    top: 8px;
+    left: 8px;
+    box-shadow: 6px 0 0 0 currentColor, 0 6px 0 0 currentColor, 6px 6px 0 0 currentColor;
+}
+
+
+/* Ajustes para pantallas más pequeñas */
+
+@media (max-width: 400px) {
+    .stats-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    .stat-card {
+        padding: 10px 8px;
+    }
+    .stat-icon {
+        width: 36px;
+        height: 36px;
+    }
+    .stat-info h3 {
+        font-size: 11px;
+    }
+    .stat-info p {
+        font-size: 16px;
+    }
+    .section-header h2 {
+        font-size: 15px;
+    }
+    .activity-info p {
+        font-size: 13px;
+    }
+}

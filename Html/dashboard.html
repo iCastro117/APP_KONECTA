@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konecta - Dashboard</title>
+    <link rel="stylesheet" href="../Css/index.css">
+    <link rel="stylesheet" href="../Css/dashboard.css">
+</head>
+
+<body>
+    <div class="mockup-container">
+        <!-- Marco del teléfono -->
+        <div class="phone-mockup">
+            <!-- Elementos del teléfono -->
+            <div class="phone-speaker"></div>
+            <div class="phone-camera"></div>
+            <div class="phone-button left"></div>
+            <div class="phone-button right-top"></div>
+            <div class="phone-button right-bottom"></div>
+
+            <!-- Pantalla del teléfono -->
+            <div class="phone-screen">
+                <!-- Barra de estado -->
+                <div class="status-bar">
+                    <div class="status-bar-time">12:30</div>
+                    <div class="status-bar-icons">
+                        <span class="icon wifi"></span>
+                        <span class="icon signal"></span>
+                        <span class="icon battery"></span>
+                    </div>
+                </div>
+
+                <!-- Fondo animado -->
+                <div class="connections dashboard-connections" id="connections"></div>
+
+                <!-- Contenido principal -->
+                <div class="app-container dashboard-container">
+                    <!-- Barra superior -->
+                    <div class="dashboard-header">
+                        <div class="profile-menu-container">
+                            <div class="profile-button" id="profileButton">
+                                <div class="profile-avatar">
+                                    <div class="avatar-placeholder">IS</div>
+                                </div>
+                            </div>
+                            <div class="profile-dropdown" id="profileDropdown">
+                                <div class="dropdown-header">
+                                    <div class="dropdown-avatar">
+                                        <div class="avatar-placeholder">IS</div>
+                                    </div>
+                                    <div class="dropdown-user-info">
+                                        <h3>Isabela Torres</h3>
+                                        <p>isa@example.com</p>
+                                    </div>
+                                </div>
+                                <div class="dropdown-menu">
+                                    <a href="#" class="dropdown-item">
+                                        <div class="dropdown-icon profile-icon"></div>
+                                        <span>Mi Perfil</span>
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <div class="dropdown-icon settings-icon"></div>
+                                        <span>Configuración</span>
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <div class="dropdown-icon password-icon"></div>
+                                        <span>Cambiar Contraseña</span>
+                                    </a>
+                                    <a href="#" class="dropdown-item danger">
+                                        <div class="dropdown-icon delete-icon"></div>
+                                        <span>Eliminar Cuenta</span>
+                                    </a>
+                                    <a href="#" class="dropdown-item" id="logoutButton">
+                                        <div class="dropdown-icon logout-icon"></div>
+                                        <span>Cerrar Sesión</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="dashboard-title">Dashboard</h1>
+                        <div class="notifications-button">
+                            <div class="notifications-icon"></div>
+                            <span class="notifications-badge">3</span>
+                        </div>
+                    </div>
+
+                    <!-- Contenido del dashboard -->
+                    <div class="dashboard-content">
+                        <!-- Tarjetas de estadísticas -->
+                        <div class="stats-container">
+                            <div class="stat-card">
+                                <div class="stat-icon messages-stat-icon"></div>
+                                <div class="stat-info">
+                                    <h3>Mensajes</h3>
+                                    <p>24</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon contacts-stat-icon"></div>
+                                <div class="stat-info">
+                                    <h3>Contactos</h3>
+                                    <p>12</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon groups-stat-icon"></div>
+                                <div class="stat-info">
+                                    <h3>Grupos</h3>
+                                    <p>5</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actividad reciente -->
+                        <div class="section-container">
+                            <div class="section-header">
+                                <h2>Actividad Reciente</h2>
+                                <a href="#" class="view-all">Ver todo</a>
+                            </div>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-avatar">
+                                        <div class="avatar-placeholder">MG</div>
+                                    </div>
+                                    <div class="activity-info">
+                                        <p><strong>María González</strong> te envió un mensaje</p>
+                                        <span class="activity-time">Hace 10 minutos</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-avatar">
+                                        <div class="avatar-placeholder">GC</div>
+                                    </div>
+                                    <div class="activity-info">
+                                        <p>Nuevo mensaje en <strong>Grupo Comunitario</strong></p>
+                                        <span class="activity-time">Hace 25 minutos</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-avatar">
+                                        <div class="avatar-placeholder">CM</div>
+                                    </div>
+                                    <div class="activity-info">
+                                        <p><strong>Carlos Mendoza</strong> te agregó como contacto</p>
+                                        <span class="activity-time">Hace 1 hora</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chats recientes -->
+                        <div class="section-container">
+                            <div class="section-header">
+                                <h2>Chats Recientes</h2>
+                                <a href="../Html/chat.html" class="view-all">Ver todo</a>
+                            </div>
+                            <div class="recent-chats">
+                                <div class="recent-chat-item">
+                                    <div class="chat-avatar">
+                                        <div class="avatar-placeholder">MG</div>
+                                        <span class="status-indicator online"></span>
+                                    </div>
+                                    <div class="chat-preview">
+                                        <h3>María González</h3>
+                                        <p>¡Hola! ¿Cómo va todo con el proyecto?</p>
+                                    </div>
+                                </div>
+                                <div class="recent-chat-item">
+                                    <div class="chat-avatar">
+                                        <div class="avatar-placeholder">LS</div>
+                                        <span class="status-indicator online"></span>
+                                    </div>
+                                    <div class="chat-preview">
+                                        <h3>Laura Sánchez</h3>
+                                        <p>¿Podemos reunirnos esta tarde?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navegación inferior -->
+                    <div class="bottom-nav">
+                        <button class="nav-button active">
+                            <div class="nav-icon dashboard-icon"></div>
+                            <span>Dashboard</span>
+                        </button>
+                        <button class="nav-button" onclick="window.location.href='../Html/chat.html'">
+                            <div class="nav-icon messages-icon"></div>
+                            <span>Mensajes</span>
+                        </button>
+                        <button class="nav-button">
+                            <div class="nav-icon contacts-icon"></div>
+                            <span>Contactos</span>
+                        </button>
+                        <button class="nav-button">
+                            <div class="nav-icon profile-icon"></div>
+                            <span>Perfil</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Js/index.js"></script>
+    <script src="../Js/dashboard.js"></script>
+</body>
+
+</html>
